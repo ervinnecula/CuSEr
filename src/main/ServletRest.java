@@ -14,9 +14,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ServletRest", urlPatterns = {"/ServletRest"})
 public class ServletRest extends HttpServlet {
-	private static final long serialVersionUID = 1L;
        
-    /**
+	private static final long serialVersionUID = 1L;
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
     public ServletRest() {
