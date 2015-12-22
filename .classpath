@@ -13,7 +13,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Ervin/workspace/CuSEr/libs/java-json.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Ervin/workspace/CuSEr/libs/twitter4j-core-2.2.3.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/twitter4j-core-2.2.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

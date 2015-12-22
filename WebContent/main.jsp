@@ -7,26 +7,22 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 
 <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-		<li><a href="#profile" data-toggle="tab">Profile</a></li>
-		<li class="disabled"><a>Disabled</a></li>
-		<li class="dropdown"><a class="dropdown-toggle"
-			data-toggle="dropdown" href="#"> Dropdown <span class="caret"></span>
-		</a>
-			<ul class="dropdown-menu">
-				<li><a href="#dropdown1" data-toggle="tab">Action</a></li>
-				<li class="divider"></li>
-				<li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
-			</ul></li>
+		<li class="active"><a href="#images" data-toggle="tab">Images</a></li>
+		<li><a href="#videos" data-toggle="tab">Videos</a></li>
+		<li><a href="#jokes" data-toggle="tab">Jokes</a></li>
+		<li><a href="#music" data-toggle="tab">Music</a></li>
+		<li><a href="#yesorno" data-toggle="tab">Yes or No</a>
 	</ul>
-	<div id="myTabContent" class="tab-content">
-		<div class="tab-pane fade active in" id="home">
+	<div class="tab-content">
+		<div class="tab-pane fade active in" id="images">
 			<p>Raw denim you probably haven't heard of them jean shorts
 				Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.
 				Mustache cliche tempor, williamsburg carles vegan helvetica.
@@ -34,8 +30,9 @@
 				sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
 				placeat salvia cillum iphone. Seitan aliquip quis cardigan american
 				apparel, butcher voluptate nisi qui.</p>
+
 		</div>
-		<div class="tab-pane fade" id="profile">
+		<div class="tab-pane fade" id="videos">
 			<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla
 				single-origin coffee squid. Exercitation +1 labore velit, blog
 				sartorial PBR leggings next level wes anderson artisan four loko
@@ -44,15 +41,12 @@
 				PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
 				mollit.</p>
 		</div>
-		<div class="tab-pane fade" id="dropdown1">
-			<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they
-				sold out mcsweeney's organic lomo retro fanny pack lo-fi
-				farm-to-table readymade. Messenger bag gentrify pitchfork tattooed
-				craft beer, iphone skateboard locavore carles etsy salvia banksy
-				hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify
-				squid 8-bit cred pitchfork.</p>
+		<div class="tab-pane fade" id="jokes">
+			<div id="joke-area">${joke}</div>
+
+			<button id="newJoke">Next</button>
 		</div>
-		<div class="tab-pane fade" id="dropdown2">
+		<div class="tab-pane fade" id="music">
 			<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
 				art party before they sold out master cleanse gluten-free squid
 				scenester freegan cosby sweater. Fanny pack portland seitan DIY, art
@@ -60,6 +54,13 @@
 				keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table
 				VHS viral locavore cosby sweater.</p>
 		</div>
+		<div class="tab-pane fade" id="yesorno">
+			<div id="yesOrNoArea" class="alert alert-success own-area">
+				<img src="${yesOrNo}" alt="yesorno" id="yesOrNoImage">
+				<button id="nextYesOrNo">Next</button>
+			</div>
+		</div>
 	</div>
+	<script type="text/javascript" src="js/ajaxRequests.js"></script>
 </body>
 </html>
