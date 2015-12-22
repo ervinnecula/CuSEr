@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 public class Auth extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
+	
+	private static final long serialVersionUID = 102831973239L;
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
     public Auth() {

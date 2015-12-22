@@ -7,8 +7,8 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import twitter4j.internal.org.json.JSONException;
+import twitter4j.internal.org.json.JSONObject;
 
 public class FBGraph {
 	private String accessToken;

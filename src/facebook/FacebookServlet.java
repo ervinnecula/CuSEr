@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class FacebookServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 22412325253L;
 	private String code="";
 
 	public void service(HttpServletRequest req, HttpServletResponse res)
