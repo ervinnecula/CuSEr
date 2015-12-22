@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+.own-area{
+    width: 41%;
+    margin: 0px auto;
+    margin-top: 3%;
+}
+
+.own-area img{
+	margin: 0 auto;
+    text-align: center;
+    max-height: 500px;
+    width: 87%;
+}
+
+.own-next-button{
+	float: right;
+}
+
+#nextYesOrNo{
+	float:right;
+}
