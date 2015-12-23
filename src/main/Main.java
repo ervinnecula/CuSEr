@@ -33,8 +33,11 @@ public class Main extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Request req = new Request();
 		//************ jokes *************//
-		String joke = req.makeHTTPRequestJoke();
-		request.setAttribute("joke", joke);
+		String jokeNorris = req.makeHTTPRequestJokeNorris();
+		request.setAttribute("jokeNorris", jokeNorris);
+		
+		String jokeMomma = req.makeHTTPRequestJokeMomma();
+		request.setAttribute("jokeMomma", jokeMomma);
 		//************ cats *************//
 		String pathToYesOrNo = req.makeHTTPRequestYesOrNo();
 		request.setAttribute("yesOrNo", pathToYesOrNo);

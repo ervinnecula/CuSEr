@@ -27,12 +27,38 @@
 	display: block;
 }
 
-#newJoke {
+#newJokeMomma {
 	margin: 0 auto;
 	margin-top: 2%;
 	display: block;
 }
 
+#newJokeNorris {
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;
+}
+
+#joke-area-yomomma {
+	min-height: 60px;
+}
+
+#joke-area-norris {
+	min-height: 60px;
+}
+
+
 #joke-area {
 	min-height: 60px;
+}
+
+#inner-nav {
+	margin: 0 auto;
+	width: 186px;
+	border: none;
+	margin-top: 30px;
+}
+
+.inner-menu a{
+	    color: #BEFF59 !important;
 }

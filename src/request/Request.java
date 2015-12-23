@@ -17,7 +17,7 @@ import org.xml.sax.InputSource;
 
 public class Request {
 
-	public String makeHTTPRequestJoke() {
+	public String makeHTTPRequestJokeNorris() {
 		JSONObject jsonObj = null;
 		String joke;
 		try {
@@ -34,6 +34,25 @@ public class Request {
 		joke = (String) jsonObj.get("joke");
 		return joke;
 	}
+	
+	public String makeHTTPRequestJokeMomma() {
+		JSONObject jsonObj = null;
+		String joke;
+		try {
+			URL url = new URL("http://api.yomomma.info/");
+			BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+			String strTemp = "";
+			while (null != (strTemp = br.readLine())) {
+				jsonObj = (JSONObject) new JSONParser().parse(strTemp);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		joke = (String)jsonObj.get("joke");
+		return joke;
+	}
+	
+	
 
 	public String makeHTTPRequestYesOrNo() {
 		JSONObject jsonObj = null;
