@@ -42,9 +42,12 @@
 				mollit.</p>
 		</div>
 		<div class="tab-pane fade" id="jokes">
-			<div id="joke-area">${joke}</div>
-
-			<button id="newJoke">Next</button>
+			<div class="alert alert-success own-area">
+				<div id="joke-area">
+					<div id="joke-area">${joke}</div>
+				</div>
+				<button id="newJoke" class="btn btn-default">Next</button>
+			</div>
 		</div>
 		<div class="tab-pane fade" id="music">
 			<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
@@ -55,9 +58,11 @@
 				VHS viral locavore cosby sweater.</p>
 		</div>
 		<div class="tab-pane fade" id="yesorno">
-			<div id="yesOrNoArea" class="alert alert-success own-area">
-				<img src="${yesOrNo}" alt="yesorno" id="yesOrNoImage">
-				<button id="nextYesOrNo">Next</button>
+			<div class="alert alert-success own-area">
+				<div id="yesOrNoArea">
+					<img src="${yesOrNo}" alt="yesorno" id="yesOrNoImage">
+				</div>
+				<button id="nextYesOrNo" class="btn btn-default">Next</button>
 			</div>
 		</div>
 	</div>

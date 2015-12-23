@@ -1,22 +1,38 @@
 @CHARSET "ISO-8859-1";
 
-.own-area{
-    width: 41%;
-    margin: 0px auto;
-    margin-top: 3%;
+.own-area {
+	width: 41%;
+	margin: 0px auto;
+	margin-top: 3%;
 }
 
-.own-area img{
+.own-area img {
 	margin: 0 auto;
-    text-align: center;
-    max-height: 500px;
-    width: 87%;
+	text-align: center;
+	max-height: 410px;
 }
 
-.own-next-button{
+.own-next-button {
 	float: right;
 }
 
-#nextYesOrNo{
-	float:right;
+#yesOrNoImage {
+	heigth: 100%;
+	width: 100%;
+}
+
+#nextYesOrNo {
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;
+}
+
+#newJoke {
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;
+}
+
+#joke-area {
+	min-height: 60px;
 }
