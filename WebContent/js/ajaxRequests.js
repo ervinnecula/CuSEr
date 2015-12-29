@@ -1,3 +1,77 @@
+function loadVideo(YTS){
+	
+	var api_key	= 'AIzaSyCZO2nHBNMSGgRg4VHMZ9P8dWT0H23J-Fc';
+	
+	if (YTS == 'random') {
+	var availableTags = [ "funny", "cats", "dogs", "memes", "songs", "rap", "tutorials", "top10"];
+
+				search_input = availableTags[Math.floor(Math.random() * availableTags.length)];
+
+  	}
+
+  	else {
+  		search_input = YTS;
+  	}
+	
+	var pageToken = document.getElementById("nextPage");
+	var pageValue ='';
+	if(pageToken && pageToken.value){
+		pageValue = '&pageToken=' + pageToken.value;
+	}
+
+	var keyword= encodeURIComponent(search_input);
+	// Youtube API 
+	var yt_url='https://www.googleapis.com/youtube/v3/search?part=snippet&q='+keyword+'&type=video&videoCaption=closedCaption&key='+api_key+pageValue+'&format=5&maxResults=50&v=2'; 
+      
+      
+		$.ajax({
+			type : 'GET',
+			//dataType : 'jsonc',
+			url : yt_url,
+			success : function(response){
+				if(response.items)
+			{
+				var data = response.items[Math.floor(Math.random() * response.items.length)];
+									
+				var video_id=data.id.videoId;
+				var video_title=data.snippet.title;
+				var video_next_page=response.nextPageToken;
+				// IFRAME Embed for YouTube
+				var video_frame="<iframe width='640' height='385' src='http://www.youtube.com/embed/"+video_id+"' frameborder='0' type='text/html'></iframe>";
+
+				var final="<div id='title'>"+video_title+"</div><div id='nextPage' style='display: none;'>"+video_next_page+"</div><div>"+video_frame+"</div>";
+
+				$("#putTheVideoHere").html(final); // Result
+
+			}
+			else
+			{
+			$("#putTheVideoHere").html("<div id='no'>No Video</div>");
+			}
+			},
+		failure : function() {
+			// TODO
+		}
+  	});
+}
+
+
+
+function loadVideoOptions() {
+
+	var s = document.getElementById('YTsearchList');
+	var availableTags = [ "funny", "cats", "dogs", "memes", "songs", "rap", "tutorials", "top10"];
+
+	for (var i = 0; i < availableTags.length; i++) {
+		var t = document.createElement("option");
+		t.textContent = availableTags[i];
+		s.appendChild(t);
+	}
+}
+	  
+
+
+
 function loadNorris() {
 	$.ajax({
 		url : "http://api.icndb.com/jokes/random/",
@@ -143,6 +217,10 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	loadVideo('random');
+});
+
+$(document).ready(function() {
 	loadYoMomma();
 });
 
@@ -151,11 +229,19 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	loadVideoOptions();
+});
+
+$(document).ready(function() {
 	loadSongOptions();
 });
 
 $(document).ready(function() {
 	loadGIF('random');
+});
+
+$("#nextVideo").click(function() {
+	loadVideo($("#YTsearchList option:selected").text());
 });
 
 $("#nextSong").click(function() {

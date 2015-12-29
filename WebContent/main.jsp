@@ -27,7 +27,16 @@
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="images"></div>
-		<div class="tab-pane fade" id="videos"></div>
+		
+		<div class="tab-pane fade" id="videos">
+			<div class="alert alert-success own-area">
+				<div id="putTheVideoHere"></div>
+				<div id="videoError"></div>
+				<select name="YTsearch" id="YTsearchList" class="form-control"></select>
+				<button id="nextVideo" class="btn btn-default">Next</button>
+			</div>
+		</div>
+		
 		<div class="tab-pane fade" id="jokes">
 			<ul id="inner-nav" class="nav nav-tabs">
 				<li class="inner-menu active"><a href="#norris"
