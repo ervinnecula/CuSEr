@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome to CuSEr!</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 
 <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="https://w.soundcloud.com/player/api.js"
+	type="text/javascript"></script>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
 
 </head>
 <body>
@@ -20,6 +23,7 @@
 		<li><a href="#jokes" data-toggle="tab">Jokes</a></li>
 		<li><a href="#music" data-toggle="tab">Music</a></li>
 		<li><a href="#yesorno" data-toggle="tab">Yes or No</a>
+		<li><a href="#gifs" data-toggle="tab">GIFs</a>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="images"></div>
@@ -35,38 +39,49 @@
 				<div class="tab-pane fade active in" id="norris">
 					<div class="alert alert-success own-area">
 						<div id="joke-area">
-							<div id="joke-area-norris">${jokeNorris}</div>
+							<div id="joke-area-norris"></div>
 						</div>
-						<button id="newJokeNorris" class="btn btn-default">Next</button>
+						<button id="nextJokeNorris" class="btn btn-default">Next</button>
 					</div>
 				</div>
 				<div class="tab-pane fade" id="yoMomma">
 					<div class="alert alert-success own-area">
 						<div id="joke-area">
-							<div id="joke-area-yomomma">${jokeMomma}</div>
+							<div id="joke-area-yomomma"></div>
 						</div>
-						<button id="newJokeMomma" class="btn btn-default">Next</button>
+						<button id="nextJokeMomma" class="btn btn-default">Next</button>
 					</div>
 				</div>
 			</div>
 
 		</div>
 		<div class="tab-pane fade" id="music">
-			<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
-				art party before they sold out master cleanse gluten-free squid
-				scenester freegan cosby sweater. Fanny pack portland seitan DIY, art
-				party locavore wolf cliche high life echo park Austin. Cred vinyl
-				keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table
-				VHS viral locavore cosby sweater.</p>
+			<div class="alert alert-success own-area">
+				<div id="putTheWidgetHere"></div>
+				<div id="musicError"></div>
+				<select name="genre" id="genreList" class="form-control"></select>
+				<button id="nextSong" class="btn btn-default">Next</button>
+			</div>
 		</div>
 		<div class="tab-pane fade" id="yesorno">
 			<div class="alert alert-success own-area">
 				<div id="yesOrNoArea">
-					<img src="${yesOrNo}" alt="yesorno" id="yesOrNoImage">
+					<img src="" alt="yesorno" id="yesOrNoImage">
 				</div>
 				<button id="nextYesOrNo" class="btn btn-default">Next</button>
 			</div>
 		</div>
+		
+		<div class="tab-pane fade" id="gifs">
+			<div class="alert alert-success own-area">
+				<div id="gifArea">
+					<img src="" alt="gif" id="gifImage">
+				</div>
+				<input type="text" class="form-control" id="gifInput" placeholder="Keywords">
+				<button id="nextGif" class="btn btn-default">Next</button>
+			</div>
+		</div>
+		
 	</div>
 	<script type="text/javascript" src="js/ajaxRequests.js"></script>
 </body>

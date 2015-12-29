@@ -21,22 +21,47 @@
 	width: 100%;
 }
 
+#gifImage{
+	heigth: 100%;
+	width: 100%;
+}
+
 #nextYesOrNo {
 	margin: 0 auto;
 	margin-top: 2%;
 	display: block;
 }
 
-#newJokeMomma {
+#nextJokeMomma {
 	margin: 0 auto;
 	margin-top: 2%;
 	display: block;
 }
 
-#newJokeNorris {
+#nextJokeNorris {
 	margin: 0 auto;
 	margin-top: 2%;
 	display: block;
+}
+
+#nextSong {
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;
+}
+
+#nextGif{
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;
+}
+
+#gifInput{
+	margin-top: 2%;
+}
+
+#genreList{
+	margin-top: 2%;
 }
 
 #joke-area-yomomma {
@@ -46,7 +71,6 @@
 #joke-area-norris {
 	min-height: 60px;
 }
-
 
 #joke-area {
 	min-height: 60px;
@@ -61,4 +85,14 @@
 
 .inner-menu a{
 	    color: #BEFF59 !important;
+}
+
+#putTheWidgetHere iframe{
+	height: 70%;
+}
+
+#gifArea img{
+	margin: 0 auto;
+    text-align: center;
+    max-height: 350px;
 }

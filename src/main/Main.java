@@ -31,17 +31,23 @@ public class Main extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Request req = new Request();
+//		Request req = new Request();
 		//************ jokes *************//
-		String jokeNorris = req.makeHTTPRequestJokeNorris();
-		request.setAttribute("jokeNorris", jokeNorris);
+//		String jokeNorris = req.makeHTTPRequestJokeNorris();
+//		request.setAttribute("jokeNorris", jokeNorris);
 		
-		String jokeMomma = req.makeHTTPRequestJokeMomma();
-		request.setAttribute("jokeMomma", jokeMomma);
+//		String jokeMomma = req.makeHTTPRequestJokeMomma();
+//		request.setAttribute("jokeMomma", jokeMomma);
+		
 		//************ cats *************//
-		String pathToYesOrNo = req.makeHTTPRequestYesOrNo();
-		request.setAttribute("yesOrNo", pathToYesOrNo);
+//		String pathToYesOrNo = req.makeHTTPRequestYesOrNo();
+//		request.setAttribute("yesOrNo", pathToYesOrNo);
 		
+		//************ music *************//
+//		String pathToMusic = req.makeHTTPRequestMusic();
+//		request.setAttribute("music", pathToMusic);
+		//String onlyUrl= request.getRequestURL().substring(0,request.getRequestURL().lastIndexOf("?")); //this has the URL
+
 		request.getRequestDispatcher("main.jsp").forward(request, response);
 	}
 

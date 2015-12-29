@@ -4,6 +4,7 @@
 <%
 	FBConnection fbConnection = new FBConnection();
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,6 +16,7 @@
 
 <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/facebook.js"></script>
 
 </head>
 <body>
@@ -30,8 +32,7 @@
 		<div class="tab-pane fade active in" id="login">
 			<div class="jumbotron own-jumbotron">
 				<h1 class="text-center">Login</h1>
-				<form class="form-horizontal own-form" method="post"
-					action="Auth">
+				<form class="form-horizontal own-form" method="post" action="Auth">
 					<input type="hidden" value="login" name="typeOfAuth">
 					<fieldset class="own-fieldset">
 						<div class="form-group">
@@ -57,19 +58,22 @@
 						</div>
 					</fieldset>
 				</form>
-				<h3 class="text-center">or</h3>
+				<h5 class="text-center">or</h5>
 				<div class="well own-well">
-					<a href="<%=fbConnection.getFBAuthUrl()%>"> <i
-						class="fa fa-facebook-square icon-size5"></i>
-					</a>
+					<div align="center">
+						<div id="status">
+							<a href="<%=fbConnection.getFBAuthUrl()%>"> <i
+								class="fa fa-facebook-square icon-size5" onclick="Login()"></i>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="tab-pane fade" id="register">
 			<div class="jumbotron own-jumbotron">
 				<h1 class="text-center">Register</h1>
-				<form class="form-horizontal own-form" method="post"
-					action="Auth">
+				<form class="form-horizontal own-form" method="post" action="Auth">
 					<fieldset class="own-fieldset">
 						<input type="hidden" value="register" name="typeOfAuth">
 						<div class="form-group">
@@ -104,6 +108,7 @@
 				</form>
 			</div>
 		</div>
+
 	</div>
 </body>
 </html>

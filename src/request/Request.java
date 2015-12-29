@@ -2,18 +2,14 @@ package request;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.net.URL;
+import java.util.Random;
 
-import javax.xml.crypto.dsig.XMLObject;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
+
+import sun.awt.image.ImageWatched.Link;
 
 public class Request {
 
@@ -34,7 +30,7 @@ public class Request {
 		joke = (String) jsonObj.get("joke");
 		return joke;
 	}
-	
+
 	public String makeHTTPRequestJokeMomma() {
 		JSONObject jsonObj = null;
 		String joke;
@@ -48,11 +44,9 @@ public class Request {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		joke = (String)jsonObj.get("joke");
+		joke = (String) jsonObj.get("joke");
 		return joke;
 	}
-	
-	
 
 	public String makeHTTPRequestYesOrNo() {
 		JSONObject jsonObj = null;
@@ -71,4 +65,37 @@ public class Request {
 		return yesOrNo;
 	}
 
+	public String makeHTTPRequestMusic() {
+		JSONArray jsonArray = new JSONArray();
+		JSONObject jsonObj = null;
+		String yesOrNo, line = "",linkToSong = "";
+		try {
+			URL url = new URL("http://api.soundcloud.com/tracks?client_id=ffcaccc2a3bf0998c26d5a980a8b8607");
+			BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+			while ((line = br.readLine()) != null) {
+
+				String objects[] = line.split("\\},");
+				
+				for(int i=0;i<objects.length;i++){
+					
+					objects[i] = objects[i].replace("[", "");
+					objects[i] = objects[i] + "}";
+					System.out.println(objects[i] + "\n");
+					jsonObj = (JSONObject) new JSONParser().parse(objects[i]);
+					
+					jsonArray.add(jsonObj);
+				}
+			}
+			Random rn = new Random();
+			int randomNum = rn.nextInt((jsonArray.size() - 0) + 1) + 0;
+			
+			jsonObj = (JSONObject) jsonArray.get(randomNum);
+			linkToSong = (String) jsonObj.get("permalink_url");
+			
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return linkToSong;
+	}
 }
