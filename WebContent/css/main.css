@@ -96,3 +96,17 @@
     text-align: center;
     max-height: 350px;
 }
+
+#putTheVideoHere div iframe {
+	height: 100%;
+	width: 100%;
+	min-height: 300px;
+}
+
+#YTsearchList{
+	margin-top: 2%;
+}
+
+#nextVideo{
+	margin-top: 2%;
+}
