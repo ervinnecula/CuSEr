@@ -22,8 +22,9 @@
 		<li><a href="#videos" data-toggle="tab">Videos</a></li>
 		<li><a href="#jokes" data-toggle="tab">Jokes</a></li>
 		<li><a href="#music" data-toggle="tab">Music</a></li>
-		<li><a href="#yesorno" data-toggle="tab">Yes or No</a>
-		<li><a href="#gifs" data-toggle="tab">GIFs</a>
+		<li><a href="#yesorno" data-toggle="tab">Yes or No</a></li>
+		<li><a href="#gifs" data-toggle="tab">GIFs</a></li>
+		<li><a href="#cats" data-toggle="tab">Cats</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="images"></div>
@@ -88,6 +89,15 @@
 				</div>
 				<input type="text" class="form-control" id="gifInput" placeholder="Keywords">
 				<button id="nextGif" class="btn btn-default">Next</button>
+			</div>
+		</div>
+		
+		<div class="tab-pane fade" id="cats">
+			<div class="alert alert-success own-area">
+				<div id="catArea">
+					<img src="" alt="cat" id="catImage">
+				</div>
+				<button id="nextCat" class="btn btn-default">Next</button>
 			</div>
 		</div>
 		

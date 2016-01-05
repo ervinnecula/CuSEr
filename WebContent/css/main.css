@@ -26,6 +26,11 @@
 	width: 100%;
 }
 
+#catImage{
+	height: 100%;
+	width: 100%;
+}
+
 #nextYesOrNo {
 	margin: 0 auto;
 	margin-top: 2%;
@@ -51,6 +56,18 @@
 }
 
 #nextGif{
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;
+}
+
+#nextCat{
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;
+}
+
+#nextVideo{
 	margin: 0 auto;
 	margin-top: 2%;
 	display: block;
@@ -104,9 +121,5 @@
 }
 
 #YTsearchList{
-	margin-top: 2%;
-}
-
-#nextVideo{
 	margin-top: 2%;
 }

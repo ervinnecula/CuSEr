@@ -194,7 +194,7 @@ function loadGIF(tag) {
 			var imageURL = giphyObj['image_url'];
 			var img = new Image();
 			var div = document.getElementById('gifArea');
-			$("#gifImage").remove();
+			$('#gifImage').remove();
 			img.onload = function() {
 				div.appendChild(img);
 			};
@@ -207,6 +207,31 @@ function loadGIF(tag) {
 		}
 	});
 }
+
+
+function loadCat() {
+	$.ajax({
+		url : "http://thecatapi.com/api/images/get?format=xml&results_per_page=1",
+		dataType: "xml",
+		success : function(result) {
+			var img = new Image();
+			var imageURL = $(result).find("url");	
+			var div = document.getElementById('catArea');
+			
+			$('#catImage').remove();
+			img.onload = function(){
+				div.appendChild(img);
+			};
+			img.src = imageURL[0].innerHTML;
+			img.id = "catImage";
+
+		},
+		failure : function() {
+			// TODO
+		}
+	});
+}
+
 
 $(document).ready(function() {
 	loadSong('random');
@@ -240,6 +265,11 @@ $(document).ready(function() {
 	loadGIF('random');
 });
 
+$(document).ready(function() {
+	loadCat();
+});
+
+
 $("#nextVideo").click(function() {
 	loadVideo($("#YTsearchList option:selected").text());
 });
@@ -261,6 +291,10 @@ $("#nextJokeNorris").click(function() {
 });
 
 $("#nextGif").click(function() {
-	var gifInput = document.getElementById('gifInput').value
+	var gifInput = document.getElementById('gifInput').value;
 	loadGIF(gifInput);
+});
+
+$("#nextCat").click(function() {
+	loadCat();
 });
