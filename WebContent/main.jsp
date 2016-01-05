@@ -25,6 +25,7 @@
 		<li><a href="#yesorno" data-toggle="tab">Yes or No</a></li>
 		<li><a href="#gifs" data-toggle="tab">GIFs</a></li>
 		<li><a href="#cats" data-toggle="tab">Cats</a></li>
+		<li><a href="#news" data-toggle="tab">News NYT</a></li>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="images"></div>
@@ -96,6 +97,19 @@
 			<div class="alert alert-success own-area">
 				<div id="catArea">
 					<img src="" alt="cat" id="catImage">
+				</div>
+				<button id="nextCat" class="btn btn-default">Next</button>
+			</div>
+		</div>
+		
+		<div class="tab-pane fade" id="news">
+			<div class="alert alert-success own-area">
+				<div id="newsArea">
+					<h2 id="title"></h2>
+					<h5 id="heading"></h5>
+					<h6>
+					<a href="" id="readMore">Read More</a>
+					</h6>
 				</div>
 				<button id="nextCat" class="btn btn-default">Next</button>
 			</div>

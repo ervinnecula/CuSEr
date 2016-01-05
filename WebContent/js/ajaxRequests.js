@@ -233,6 +233,50 @@ function loadCat() {
 }
 
 
+function loadNews(page,year,category,articleOfPage){
+	
+	var baseURL = "http://api.nytimes.com/svc/search/v2/articlesearch.json?&api-key=f982f1eb93b61a79e622aa952c55878c:4:73935133";
+
+	var URL = baseURL;
+
+	if(page != 'none') {
+		URL = URL.concat("&page=").concat(page);
+	}
+	
+	if(category != 'none'){
+		URL = URL.concat("&q=").concat(category);
+	}
+	
+	if(year != 'none'){
+		URL = URL.concat("&pub_year=").concat(year);
+	}
+	
+	$.ajax({
+		url : URL,
+		dataType: "json",
+		success : function(result) {
+			var response = result["response"];
+			var articles = response["docs"];
+			var anArticle = articles[articleOfPage];
+			
+			var readMore = anArticle["web_url"]; // url
+			var headline = anArticle["headline"];
+			
+			var title = headline["main"]; // title
+			
+			var snippet = anArticle["snippet"]; // snippet paragraph
+			
+			document.getElementById("title").innerHTML = title;
+			document.getElementById("heading").innerHTML = snippet;
+			document.getElementById("readMore").href=readMore;
+		},
+		failure : function() {
+			// TODO
+		}
+	});
+}
+
+
 $(document).ready(function() {
 	loadSong('random');
 });
@@ -269,6 +313,11 @@ $(document).ready(function() {
 	loadCat();
 });
 
+$(document).ready(function() {
+	loadNews('5', 'none', 'none', '2');
+});
+
+//todo
 
 $("#nextVideo").click(function() {
 	loadVideo($("#YTsearchList option:selected").text());
