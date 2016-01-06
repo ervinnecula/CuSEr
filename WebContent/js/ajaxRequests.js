@@ -248,7 +248,8 @@ function loadNews(page,year,category,articleOfPage){
 	}
 	
 	if(year != 'none'){
-		URL = URL.concat("&pub_year=").concat(year);
+		URL = URL.concat("&begin_date=").concat(year).concat("0101"); // begin of the year
+		URL = URL.concat("&end_date=").concat(year+1).concat("0101"); // beginning of the next year
 	}
 	
 	$.ajax({
@@ -264,11 +265,16 @@ function loadNews(page,year,category,articleOfPage){
 			
 			var title = headline["main"]; // title
 			
+			console.log(title);
+			
+			var section_name = anArticle["section_name"];
+			
 			var snippet = anArticle["snippet"]; // snippet paragraph
 			
 			document.getElementById("title").innerHTML = title;
 			document.getElementById("heading").innerHTML = snippet;
 			document.getElementById("readMore").href=readMore;
+			document.getElementById("category").innerHTML = section_name;
 		},
 		failure : function() {
 			// TODO
@@ -314,7 +320,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	loadNews('5', 'none', 'none', '2');
+	loadNews('1', 'none', 'none', '2');
 });
 
 //todo
@@ -346,4 +352,10 @@ $("#nextGif").click(function() {
 
 $("#nextCat").click(function() {
 	loadCat();
+});
+
+$("#nextArticle").click(function() {
+	var year = document.getElementById('yearInput').value;
+	console.log(year);
+	loadNews(page, year, category, articleOfPage);
 });

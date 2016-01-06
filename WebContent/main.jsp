@@ -29,7 +29,7 @@
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="images"></div>
-		
+
 		<div class="tab-pane fade" id="videos">
 			<div class="alert alert-success own-area">
 				<div id="putTheVideoHere"></div>
@@ -38,7 +38,7 @@
 				<button id="nextVideo" class="btn btn-default">Next</button>
 			</div>
 		</div>
-		
+
 		<div class="tab-pane fade" id="jokes">
 			<ul id="inner-nav" class="nav nav-tabs">
 				<li class="inner-menu active"><a href="#norris"
@@ -82,17 +82,18 @@
 				<button id="nextYesOrNo" class="btn btn-default">Next</button>
 			</div>
 		</div>
-		
+
 		<div class="tab-pane fade" id="gifs">
 			<div class="alert alert-success own-area">
 				<div id="gifArea">
 					<img src="" alt="gif" id="gifImage">
 				</div>
-				<input type="text" class="form-control" id="gifInput" placeholder="Keywords">
+				<input type="text" class="form-control" id="gifInput"
+					placeholder="Keywords">
 				<button id="nextGif" class="btn btn-default">Next</button>
 			</div>
 		</div>
-		
+
 		<div class="tab-pane fade" id="cats">
 			<div class="alert alert-success own-area">
 				<div id="catArea">
@@ -101,20 +102,47 @@
 				<button id="nextCat" class="btn btn-default">Next</button>
 			</div>
 		</div>
-		
+
 		<div class="tab-pane fade" id="news">
 			<div class="alert alert-success own-area">
 				<div id="newsArea">
-					<h2 id="title"></h2>
-					<h5 id="heading"></h5>
-					<h6>
-					<a href="" id="readMore">Read More</a>
-					</h6>
+					<h1>
+						<p id="title"></p>
+					</h1>
+
+					<h6 id="category"></h6>
+					<blockquote>
+						<p id="heading"></p>
+						<small> <a href="" id="readMore" class="text-warning">Read
+								More</a>
+						</small>
+					</blockquote>
 				</div>
-				<button id="nextCat" class="btn btn-default">Next</button>
+				<div class="row">
+					<div class="col-md-6">
+						<select class="form-control" id="articleList" name="articleList">
+							<option>Random</option>
+							<option>Lifestyle</option>
+							<option>Health</option>
+							<option>Arts</option>
+							<option>Economy</option>
+							<option>Business</option>
+							<option>Computers</option>
+							<option>Food</option>
+							<option>Sport</option>
+							<option>Travel</option>
+							<option>Nature</option>
+						</select>
+					</div>
+					<div class="col-md-6">
+						<input type="text" class="form-control col-md-6" id="inputYear"
+							placeholder="Pick a year starting 1860">
+					</div>
+				</div>
+				<button id="nextArticle" class="btn btn-default">Next</button>
 			</div>
 		</div>
-		
+
 	</div>
 	<script type="text/javascript" src="js/ajaxRequests.js"></script>
 </body>

@@ -73,6 +73,12 @@
 	display: block;
 }
 
+#nextArticle{
+	margin: 0 auto;
+	margin-top: 2%;
+	display: block;	
+}
+
 #gifInput{
 	margin-top: 2%;
 }
