@@ -118,6 +118,7 @@
 						</small>
 					</blockquote>
 				</div>
+
 				<div class="row">
 					<div class="col-md-6">
 						<select class="form-control" id="articleList" name="articleList">
@@ -139,6 +140,12 @@
 							placeholder="Pick a year starting 1860">
 					</div>
 				</div>
+				
+				<div class="alert alert-dismissible alert-danger" id="yearAlert">
+					<button type="button" class="close" data-dismiss="alert">x</button>
+					<strong>Oh snap!</strong> There was a problem with the year inserted
+				</div>
+				
 				<button id="nextArticle" class="btn btn-default">Next</button>
 			</div>
 		</div>

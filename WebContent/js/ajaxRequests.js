@@ -246,10 +246,12 @@ function loadNews(page,year,category,articleOfPage){
 	if(category != 'none'){
 		URL = URL.concat("&q=").concat(category);
 	}
+	var nextYear = year;
+	nextYear ++;
 	
 	if(year != 'none'){
 		URL = URL.concat("&begin_date=").concat(year).concat("0101"); // begin of the year
-		URL = URL.concat("&end_date=").concat(year+1).concat("0101"); // beginning of the next year
+		URL = URL.concat("&end_date=").concat(nextYear).concat("0101"); // beginning of the next year
 	}
 	
 	$.ajax({
@@ -320,7 +322,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	loadNews('1', 'none', 'none', '2');
+	loadNews('1', '1990', 'Economy', '2');
 });
 
 //todo
@@ -355,7 +357,19 @@ $("#nextCat").click(function() {
 });
 
 $("#nextArticle").click(function() {
-	var year = document.getElementById('yearInput').value;
+	
+	var year = document.getElementById('inputYear').value;
+	
+	var currentTime = new Date();
+	var currentYear = currentTime.getFullYear();
+	
 	console.log(year);
-	loadNews(page, year, category, articleOfPage);
+	
+	if(year.length != 4 || year < '1860' || year > currentYear){
+		$("#yearAlert").show();
+		
+	}
+	var category = $("#articleList option:selected").text();
+	
+	loadNews(1, year, category, 1);
 });
