@@ -106,15 +106,14 @@
 		<div class="tab-pane fade" id="news">
 			<div class="alert alert-success own-area">
 				<div id="newsArea">
-					<h1>
-						<p id="title"></p>
-					</h1>
-
-					<h6 id="category"></h6>
+					
+					<h2 id="titleArticle"></h2>
+				
+					<h6 id="categoryArticle"></h6>
 					<blockquote>
-						<p id="heading"></p>
-						<small> <a href="" id="readMore" class="text-warning">Read
-								More</a>
+						<p id="headingArticle"></p>
+						<small> <a href="" id="readMoreArticle" class="text-warning">Read
+								More on the NYT</a>
 						</small>
 					</blockquote>
 				</div>
@@ -123,26 +122,29 @@
 					<div class="col-md-6">
 						<select class="form-control" id="articleList" name="articleList">
 							<option>Random</option>
-							<option>Lifestyle</option>
+							<option>U.S.</option>
 							<option>Health</option>
 							<option>Arts</option>
+							<option>Blogs</option>
 							<option>Economy</option>
-							<option>Business</option>
-							<option>Computers</option>
-							<option>Food</option>
-							<option>Sport</option>
-							<option>Travel</option>
-							<option>Nature</option>
+							<option>Business Day</option>
+							<option>Technology</option>
+							<option>Health</option>
+							<option>Movies</option>
+							<option>Sports</option>
+							<option>World</option>
 						</select>
 					</div>
 					<div class="col-md-6">
 						<input type="text" class="form-control col-md-6" id="inputYear"
 							placeholder="Pick a year starting 1860">
+						<input value="0" type="hidden" id="counter"/>
+						
 					</div>
 				</div>
 				
 				<div class="alert alert-dismissible alert-danger" id="yearAlert">
-					<button type="button" class="close" data-dismiss="alert">x</button>
+					<button type="button" class="close" id="closeEx">x</button>
 					<strong>Oh snap!</strong> There was a problem with the year inserted
 				</div>
 				
