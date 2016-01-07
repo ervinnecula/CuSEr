@@ -77,7 +77,7 @@
 		<div class="tab-pane fade" id="yesorno">
 			<div class="alert alert-success own-area">
 				<div id="yesOrNoArea">
-					<img src="" alt="yesorno" id="yesOrNoImage">
+					<img src="" alt="yesorno" id="yesOrNoImage" class="yesOrNoRemove">
 				</div>
 				<button id="nextYesOrNo" class="btn btn-default">Next</button>
 			</div>
@@ -86,7 +86,7 @@
 		<div class="tab-pane fade" id="gifs">
 			<div class="alert alert-success own-area">
 				<div id="gifArea">
-					<img src="" alt="gif" id="gifImage">
+					<img src="" alt="gif" id="gifImage" class="gifImageRemove">
 				</div>
 				<input type="text" class="form-control" id="gifInput"
 					placeholder="Keywords">
@@ -97,7 +97,7 @@
 		<div class="tab-pane fade" id="cats">
 			<div class="alert alert-success own-area">
 				<div id="catArea">
-					<img src="" alt="cat" id="catImage">
+					<img src="" alt="cat" id="catImage" class="catRemove">
 				</div>
 				<button id="nextCat" class="btn btn-default">Next</button>
 			</div>

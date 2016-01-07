@@ -27,8 +27,7 @@ function loadVideo(YTS) {
 			+ keyword + '&type=video&videoCaption=closedCaption&key=' + api_key
 			+ pageValue + '&format=5&maxResults=50&v=2';
 
-	$
-			.ajax({
+		$.ajax({
 				type : 'GET',
 				// dataType : 'jsonc',
 				url : yt_url,
@@ -98,7 +97,7 @@ function loadYoMomma() {
 		dataType : 'json',
 		success : function(result) {
 			var joke = result['joke'];
-			$("#joke-area-yomomma").html(joke)
+			$("#joke-area-yomomma").html(joke);
 		},
 		failure : function() {
 			// TODO
@@ -114,13 +113,17 @@ function loadYesOrNo() {
 			var yesOrNo = obj['image'];
 			var img = new Image();
 			var div = document.getElementById('yesOrNoArea');
-			$("#yesOrNoImage").remove();
+			
+			$(".yesOrNoRemove").remove();
+			
 			img.onload = function() {
 				div.appendChild(img);
 			};
 
 			img.src = yesOrNo;
 			img.id = "yesOrNoImage";
+			img.className = "yesOrNoRemove"; 
+				
 		},
 		failure : function() {
 			// TODO
@@ -199,14 +202,18 @@ function loadGIF(tag) {
 			var giphyObj = obj['data'];
 			var imageURL = giphyObj['image_url'];
 			var img = new Image();
+			
 			var div = document.getElementById('gifArea');
-			$('#gifImage').remove();
+			
+			$('.gifImageRemove').remove();
+			
 			img.onload = function() {
 				div.appendChild(img);
 			};
 
 			img.src = imageURL;
-			img.id = "gifImage";
+			img.className = "gifImageRemove";
+			img.id= "gifImage";
 		},
 		failure : function() {
 			// TODO
@@ -224,12 +231,14 @@ function loadCat() {
 					var imageURL = $(result).find("url");
 					var div = document.getElementById('catArea');
 
-					$('#catImage').remove();
+					$('.catRemove').remove();
+					
 					img.onload = function() {
 						div.appendChild(img);
 					};
 					img.src = imageURL[0].innerHTML;
 					img.id = "catImage";
+					img.className = "catRemove"
 
 				},
 				failure : function() {
