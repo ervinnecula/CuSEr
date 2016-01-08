@@ -44,9 +44,9 @@ function loadVideo(YTS) {
 								+ video_id
 								+ "' frameborder='0' type='text/html'></iframe>";
 
-						var final = "<div id='title'>"
+						var final = "<h3 id='title'>"
 								+ video_title
-								+ "</div><div id='nextPage' style='display: none;'>"
+								+ "</h3><div id='nextPage' style='display: none;'>"
 								+ video_next_page + "</div><div>" + video_frame
 								+ "</div>";
 
@@ -275,8 +275,6 @@ function loadNews(page, year, category, articleOfPage) {
 																		// year
 	}
 
-	console.log(URL);
-
 	$.ajax({
 		url : URL,
 		dataType : "json",
@@ -307,7 +305,7 @@ function loadNews(page, year, category, articleOfPage) {
 				$('#categoryArticle').html("");
 				
 				if(headingElement.innerHTML == ""){
-					headingElement.innerHTML = "This article cannot be read here, please go to NYT source"
+					headingElement.innerHTML = "This article cannot be read here, please go to NYT source";
 				}
 			
 			} else {
@@ -319,6 +317,78 @@ function loadNews(page, year, category, articleOfPage) {
 		}
 	});
 }
+
+function loadTrivia() {
+	$.ajax({
+		url : "http://numbersapi.com/random/trivia",
+		type : 'GET',
+		success : function(result) {
+			$("#triviaFact").html(result);
+		},
+		failure : function() {
+			// TODO
+		}
+	});
+}
+
+function loadYear() {
+	$.ajax({
+		url : "http://numbersapi.com/random/year",
+		type : 'GET',
+		success : function(result) {
+			$("#yearFact").html(result);
+		},
+		failure : function() {
+			// TODO
+		}
+	});
+}
+
+function loadDate() {
+	$.ajax({
+		url : "http://numbersapi.com/random/date",
+		type : 'GET',
+		success : function(result) {
+			$("#dateFact").html(result);
+		},
+		failure : function() {
+			// TODO
+		}
+	});
+}
+
+function loadCurrentDate() {
+	var currentTime = new Date();
+	var currentMonth = currentTime.getMonth();
+	var currentDay = currentTime.getDate();
+	currentMonth ++;
+	
+	$.ajax({
+		url : "http://numbersapi.com/"+currentMonth+"/"+currentDay+"/"+"date",
+		type : 'GET',
+		success : function(result) {
+			$("#dateFact").html(result);
+		},
+		failure : function() {
+			// TODO
+		}
+	});
+}
+
+function loadMath() {
+	$.ajax({
+		url : "http://numbersapi.com/random/math",
+		type : 'GET',
+		success : function(result) {
+			$("#mathFact").html(result);
+		},
+		failure : function() {
+			// TODO
+		}
+	});
+}
+
+
 
 $(document).ready(function() {
 	loadSong('random');
@@ -357,6 +427,22 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	loadTrivia();
+});
+
+$(document).ready(function() {
+	loadYear();
+});
+
+$(document).ready(function() {
+	loadDate();
+});
+
+$(document).ready(function() {
+	loadMath();
+});
+
+$(document).ready(function() {
 	loadNews('1', 'none', 'none', '1');
 });
 
@@ -391,8 +477,7 @@ $("#nextCat").click(function() {
 	loadCat();
 });
 
-$("#nextArticle")
-		.click(
+$("#nextArticle").click(
 				function() {
 
 					var year = $('#inputYear').val();
@@ -428,4 +513,24 @@ $("#nextArticle")
 
 $("#closeEx").click(function() {
 	$("#yearAlert").hide("slow", "linear");
+});
+
+$("#nextTiviaFact").click(function() {
+	loadTrivia();
+});
+
+$("#nextYearFact").click(function() {
+	loadYear();
+});
+
+$("#nextDateFact").click(function() {
+	loadDate();
+});
+
+$("#nextMathFact").click(function() {
+	loadMath();
+});
+
+$("#nextTodayDateFact").click(function(){
+	loadCurrentDate();
 });
