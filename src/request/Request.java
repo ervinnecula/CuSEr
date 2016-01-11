@@ -66,6 +66,7 @@ public class Request {
 	}
 
 	public String makeHTTPRequestMusic() {
+
 		JSONArray jsonArray = new JSONArray();
 		JSONObject jsonObj = null;
 		String yesOrNo, line = "",linkToSong = "";
@@ -98,4 +99,5 @@ public class Request {
 		}
 		return linkToSong;
 	}
+
 }

@@ -29,7 +29,14 @@
 		<li><a href="#numbers" data-toggle="tab">Random Facts</a></li>
 	</ul>
 	<div class="tab-content">
-		<div class="tab-pane fade active in" id="images"></div>
+		<div class="tab-pane fade active in" id="images">
+			<div class="alert alert-success own-area">
+				<ul id="imagesArea" class="row">
+					
+				</ul>
+				<button id="nextImages" class="btn btn-default next-button">Next Page</button>
+			</div>
+		</div>
 
 		<div class="tab-pane fade" id="videos">
 			<div class="alert alert-success own-area">

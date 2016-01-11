@@ -388,7 +388,51 @@ function loadMath() {
 	});
 }
 
+function loadGettyImages(){
+	var appendApiKeyHeader = function( xhr ) {
+		  xhr.setRequestHeader('Api-Key', 'hn4f7zvbwqdkcdsreutw5xzg');
+		};
+	var searchRequest = { "phrase": "dog" };
+	
+	GetSearchResults();
+	
+	function GetSearchResults(callback) {
+	  $.ajax({
+	    type: "GET",
+	    beforeSend: appendApiKeyHeader,
+	    url: "https://connect.gettyimages.com/v3/search/images",
+	    data: searchRequest})
+	    .success(function (data, textStatus, jqXHR) { 
+	    	
+	    	var images = data["images"];
 
+	    	
+	    	for(var i=0; i<30;i++){
+	    		var object = images[i];
+	    		var display_sizes = object["display_sizes"];
+	    		var element = display_sizes["0"];
+	    		var uri = element["uri"];
+	    		
+	    		var imagesArea = document.getElementById("imagesArea");
+	    		
+	    		var liNode = document.createElement("li");
+	    		liNode.setAttribute("class","col-lg-3 col-md-4 col-xs-6 thumb own-grid");    		
+	    		var imgNode = document.createElement("img");
+	    		imgNode.setAttribute("src",uri);
+	    		imgNode.setAttribute("alt","image"+i);
+	    		imgNode.setAttribute("height","120");
+	    		imgNode.setAttribute("width","120");
+	    		  		
+	    		liNode.appendChild(imgNode);
+	    		imagesArea.appendChild(liNode);	
+	    		 		
+	    	}
+
+	    	
+	    })
+	    .fail(function (data, err) { console.log("error"); });
+	}
+}
 
 $(document).ready(function() {
 	loadSong('random');
@@ -446,7 +490,11 @@ $(document).ready(function() {
 	loadNews('1', 'none', 'none', '1');
 });
 
-// todo
+$(document).ready(function() {
+	loadGettyImages();
+});
+
+// clicks
 
 $("#nextVideo").click(function() {
 	loadVideo($("#YTsearchList option:selected").text());
