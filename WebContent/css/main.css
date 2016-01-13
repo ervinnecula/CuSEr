@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 .own-area {
-	width: 41%;
+	width: 38%;
 	margin: 0px auto;
 	margin-top: 3%;
 }
@@ -35,6 +35,10 @@
 	margin: 0 auto;
 	margin-top: 2%;
 	display: block;
+}
+
+#inputImageCategory{
+	margin-top: 2%;
 }
 
 #gifInput {
@@ -116,9 +120,25 @@
 
 .own-grid{
 	list-style-type: none;
-	padding-left: 0 px;
+    padding-left: 0px;
+    padding: 0px;
+    min-width: 120px;
 }
 
-.imagesArea{
+#imagesArea{
 	padding: 0px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    text-align: center;
+}
+
+#images div{
+	min-width: 443px;
+    width: 68%;
+    margin: 0px auto;
+    margin-top: 3%;
+}
+
+li img{
+	margin-top: 2%;
 }

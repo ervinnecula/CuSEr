@@ -30,10 +30,13 @@
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="images">
-			<div class="alert alert-success own-area">
-				<ul id="imagesArea" class="row">
+			<div class="alert alert-success">
+				<ul id="imagesArea" class="row effect-4 grid">
 					
 				</ul>
+				<input value="0" type="hidden" id="imagePageCounter" />
+				<input type="text" class="form-control" id="inputImageCategory"
+							placeholder="Pick a category"> 
 				<button id="nextImages" class="btn btn-default next-button">Next Page</button>
 			</div>
 		</div>

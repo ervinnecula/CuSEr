@@ -388,26 +388,29 @@ function loadMath() {
 	});
 }
 
-function loadGettyImages(){
+function loadGettyImages(category){
+	
+	var counterValue = $("#imagePageCounter").val();
+	var page = counterValue;
+	page ++;
+	
 	var appendApiKeyHeader = function( xhr ) {
 		  xhr.setRequestHeader('Api-Key', 'hn4f7zvbwqdkcdsreutw5xzg');
 		};
-	var searchRequest = { "phrase": "dog" };
-	
+		
 	GetSearchResults();
 	
 	function GetSearchResults(callback) {
+		
 	  $.ajax({
 	    type: "GET",
 	    beforeSend: appendApiKeyHeader,
-	    url: "https://connect.gettyimages.com/v3/search/images",
-	    data: searchRequest})
-	    .success(function (data, textStatus, jqXHR) { 
+	    url: "https://connect.gettyimages.com/v3/search/images?phrase="+category+"&page="+page,
+	  }).success(function (data, textStatus, jqXHR) { 
 	    	
 	    	var images = data["images"];
-
-	    	
-	    	for(var i=0; i<30;i++){
+	    		    	
+	    	for(var i=0; i<8;i++){
 	    		var object = images[i];
 	    		var display_sizes = object["display_sizes"];
 	    		var element = display_sizes["0"];
@@ -420,8 +423,8 @@ function loadGettyImages(){
 	    		var imgNode = document.createElement("img");
 	    		imgNode.setAttribute("src",uri);
 	    		imgNode.setAttribute("alt","image"+i);
-	    		imgNode.setAttribute("height","120");
-	    		imgNode.setAttribute("width","120");
+	    		imgNode.setAttribute("height","200");
+	    		imgNode.setAttribute("width","200");
 	    		  		
 	    		liNode.appendChild(imgNode);
 	    		imagesArea.appendChild(liNode);	
@@ -432,6 +435,7 @@ function loadGettyImages(){
 	    })
 	    .fail(function (data, err) { console.log("error"); });
 	}
+	document.getElementById("imagePageCounter").value++;
 }
 
 $(document).ready(function() {
@@ -491,7 +495,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	loadGettyImages();
+	loadGettyImages("cat");
 });
 
 // clicks
@@ -582,3 +586,34 @@ $("#nextMathFact").click(function() {
 $("#nextTodayDateFact").click(function(){
 	loadCurrentDate();
 });
+
+$("#nextImages").click(function(){
+	var myNode = document.getElementById("imagesArea");
+	while (myNode.firstChild) {
+	    myNode.removeChild(myNode.firstChild);
+	}
+	
+	var category = $("#inputImageCategory").val();
+	if(category != ''){
+		loadGettyImages(category);
+	}
+	else {
+		loadGettyImages('cat');
+	}
+});
+ 
+$("#inputImageCategory").on('input', function(){
+	
+	var inputBox = document.getElementById("inputImageCategory");
+
+	if(inputBox.value ==  ''){
+		console.log("reached here");
+		$("#nextImages").text("Next Page");
+	}
+	else{
+		console.log("asdf");
+		$("#nextImages").text("Search");
+	}
+});
+
+
